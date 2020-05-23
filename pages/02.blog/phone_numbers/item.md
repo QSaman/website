@@ -2,6 +2,8 @@
 
 If you want to call an international number, first you need to dial `exit code` or more formally [international direct dialing (IDD)](https://en.wikipedia.org/wiki/List_of_international_call_prefixes) of origin country. In most European and all Middle East countries it's `00`. Suppose that you want call a Canadian number from Iran, a country in the Middle East. The exit code in Iran is `00` and the [country calling code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) for Canada is `1`, so you need to dial `001` and then the Canadian number.
 
+===
+
 Now Imagine you want to call an Iranian number from Canada. The exit code in Canada is `011` and the country calling code for Iran is `98`. So you need to dial `01198` and then the Iranian number! To avoid this type of confusion, You can replace exit code with `+`. So depending on origin country, `+` is replaced with appropriate exit code.
 
 Knowing this type of information can be helpful in international traveling. It's always a good idea to check it in [Wikipedia](https://en.wikipedia.org/). The title usually is `Telephone Numbers in ...`. For example if you google `"telephone numbers in Canada`, usually the first link is Wikipedia article.
