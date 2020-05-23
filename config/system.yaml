@@ -4,7 +4,7 @@ home:
   alias: '/home'
 
 pages:
-  theme: quark
+  theme: ebon_hawk
   markdown:
     extra: false
   process:
