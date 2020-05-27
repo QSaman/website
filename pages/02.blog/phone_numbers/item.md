@@ -1,3 +1,17 @@
+---
+title: International Calling
+date: 18:46 05/20/2020 
+
+hero_classes: text-light title-h1h2 overlay-dark-gradient hero-large parallax
+show_sidebar: true
+hero_image: header.jpg
+
+taxonomy:
+    category: blog
+    tag: [travel, phone, cellphone, city]
+---
+
+
 ## International Direct Dialing
 
 If you want to call an international number, first you need to dial `exit code` or more formally [international direct dialing (IDD)](https://en.wikipedia.org/wiki/List_of_international_call_prefixes) of origin country. In most European and all Middle East countries it's `00`. Suppose that you want call a Canadian number from Iran, a country in the Middle East. The exit code in Iran is `00` and the [country calling code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) for Canada is `1`, so you need to dial `001` and then the Canadian number.

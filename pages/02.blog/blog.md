@@ -21,6 +21,7 @@ feed:
     description: 'Sample Blog Description'
     limit: 10
 pagination: true
+hero_image: user://pages/files/images/my-header.jpg
 ---
 
 

@@ -2,7 +2,7 @@
 title: 'Saman'
 menu: Top
 hero_classes: parallax text-light
-hero_image: my-header.jpg
+hero_image: user://pages/files/images/my-header.jpg
 ---
 
 # Saman Saadi
