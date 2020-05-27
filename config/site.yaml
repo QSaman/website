@@ -4,4 +4,6 @@ author:
   email: ''
 metadata:
     description: 'Welcome to Saman Saadi Website'
+blog:
+    hero_image: 'user://pages/01.home/01._hero/my-header.jpg'
 
