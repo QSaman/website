@@ -22,3 +22,10 @@ bin/grav install
 ```
 
 Then add `grav-skeleton-blog-site/pages/modules`.
+
+
+## Install these plugins
+
+```
+$ bin/gpm install mathjax
+```

@@ -8,7 +8,7 @@ hero_image: header.png
 
 taxonomy:
     category: blog
-    tag: [travel, city, linux, date, time_zone]
+    tag: [travel, city, linux, date, time zone]
 ---
 
 There is an independent database of different zones named tz database. Basically they named each zone start with the continent or ocean name then follows slash and finally the city or region name. For example `America/Montreal`, `America/New_York`, `Asia/Tehran`, `Europe/London`.
