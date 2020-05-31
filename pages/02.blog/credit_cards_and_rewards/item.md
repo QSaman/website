@@ -60,18 +60,6 @@ $$
 
 So we need to divide the points by 10 to convert it cash-back percentage. If you couldn't get the premuim ones and ended with [PC Financial Mastercard](https://www.pcfinancial.ca/en/credit-cards/pc-mastercard), then it means 2.5% cash-back in pharmacy, 2% in travel and 1% in grocery and everything besides gas. Of course you are limited to Loblaw's [divisions](http://www.loblaw.ca/en.html).
 
-As you can see the gas points is per litre and not per dollar. [This is where the fun begins!](https://www.imdb.com/title/tt0121766/quotes?item=qt0333039) Each [Esso](https://www.esso.ca/en-ca) station has different price per litre. So we cannot convert gas points to cash-back without considering the price in a specific station. Let's assume the price of gas is `x` cents per litre. Also we assume we get `p` points per litre:
-
-$$
-\begin{align*}
-\frac {\text{gain}} {\text{spend}} &= \frac {p \text{ points}} {1 \text{ litre}} \\
-&= \frac {p \text{ points}} {x \text{ cents}} \\
-&= \frac {p \text{ points} \times \frac {100}{x \text{ cents}} } {x \text{ cents} \times \frac {100}{x \text{ cents}}} \\
-&= \frac {p \times {0.1 \text{ cents}} \times \frac {100}{x \text{ cents}}}{100} \\
-&= \frac {p \times 10 \text{ cents}}{x \text{ cents}}\%
-\end{align*}
-$$
-
-For example if you find an station which sell gas 100 cents per litre, the cash-back is \(\frac{30 \times 10}{100} = 3\%\). If you expect at least 2% cash-back, then the price of gas shouldn't be more than 150 cents. As you can see point-based credit cards require a lot of calculation!
+As you can see the gas points is per litre and not per dollar. [This is where the fun begins!](https://www.imdb.com/title/tt0121766/quotes?item=qt0333039) Each [Esso](https://www.esso.ca/en-ca) station has different price per litre. So we cannot convert gas points to cash-back without considering the price in a specific station. According to [GasBuddy](https://www.gasbuddy.com/), the price of gas in Esso station in downtown is 101.9 cents but Costco sells it at 93.5 cents. Let's assume we have another cash-back card with 2% cash-back for gas. The net gas price per litre for Costco is \(93.5 \times (1 - 2\%) = 91.63\) cents and for Esso is \(101.9 - 30 \text{ points} = 101.9 - 3 = 98.9\). So Costco is cheaper. As you can see point-based credit cards require a lot of calculation!
 
 Anyway this is a good Credit Card Considering that for pharmacy you get 2% and for the rest at least 1% cash-back without paying annual fees. You can combine it with [Tangerine Credit Card](https://www.tangerine.ca/en/products/spending/creditcard/) to have the best of both worlds.
