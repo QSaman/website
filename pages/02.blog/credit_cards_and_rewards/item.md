@@ -24,8 +24,8 @@ You can find a lot of Credit Cards in this category. When a card for example is 
 $$
 \begin{align*}
 \frac {\text{gain}} {\text{spend}} &= \frac {\$2.00} {\$100.00} \\
-                                   &= \$0.02 \\
-\Rightarrow \text{gain} &= \$0.02 \times \text{spend}
+\Rightarrow \text{gain} &= \frac {\$2.00} {\$100.00} \times \text{spend} \\
+&= \$0.02 \times \text{spend}
 \end{align*}
 $$
 
