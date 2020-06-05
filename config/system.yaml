@@ -43,3 +43,9 @@ debugger:
 gpm:
   releases: stable
   verify_peer: true
+
+languages:
+  include_default_lang: false
+  supported:
+    - en
+    - fa
