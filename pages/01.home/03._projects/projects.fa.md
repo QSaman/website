@@ -1,5 +1,7 @@
 ---
 title: پروژه‌ها
+menu: Projects
+menu_text: پروژه‌ها
 class: small
 projects:
     - header: lips

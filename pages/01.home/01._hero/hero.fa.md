@@ -1,6 +1,7 @@
 ---
 title: 'Saman'
-menu: اول
+menu: Top
+menu_text: سرایند
 hero_classes: parallax text-light
 hero_image: user://pages/files/images/my-header.jpg
 ---

@@ -1,6 +1,7 @@
 ---
 title: بیوگرافی
-menu: بیوگرافی
+menu: Biography
+menu_text: بیوگرافی
 image_align: right
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: شبکه‌های مجازی
-menu: شبکه‌های مجازی
+menu: Social Media
+menu_text: شبکه‌های مجازی
 class: small
 features:
     - header: LinkedIn
