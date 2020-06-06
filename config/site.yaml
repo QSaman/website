@@ -6,4 +6,13 @@ metadata:
     description: 'Welcome to Saman Saadi Website'
 blog:
     hero_image: 'user://pages/files/images/my-header.jpg'
+menu:
+    - text: Blog
+      icon: pencil
+      url: /blog
+      class: external
+    - icon: linkedin
+      url: https://www.linkedin.com/in/samansaadi/
+      class: external
+
 
