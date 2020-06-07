@@ -7,7 +7,6 @@ hero_classes: parallax text-light
 hero_image: user://pages/files/images/my-header.jpg
 ---
 
-{% include 'partials/language-selector.html.twig' %}
 # Saman Saadi
 ## Software Developer
 

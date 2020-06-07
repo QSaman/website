@@ -7,7 +7,7 @@ menu_text: سرایند
 hero_classes: parallax text-light
 hero_image: user://pages/files/images/my-header.jpg
 ---
-{% include 'partials/language-selector.html.twig' %}
+
 # سامان سعدی
 ## برنامه‌نویس
 
