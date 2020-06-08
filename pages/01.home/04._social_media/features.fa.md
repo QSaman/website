@@ -4,22 +4,22 @@ menu: Social Media
 menu_text: شبکه‌های مجازی
 class: small
 features:
-    - header: LinkedIn
+    - header: لینکداین
       icon: fa fa-linkedin
       url: https://www.linkedin.com/in/samansaadi/
-    - header: GitHub
+    - header: گیت‌هاب
       icon: fa fa-github
       url: https://github.com/QSaman
-    - header: Blog
+    - header: وبلاگ
       icon: fa fa-pencil
       url: /blog
-    - header: Instagram
+    - header: اینستاگرام
       icon: fa fa-instagram
       url: https://www.instagram.com/saman.saadi
-    - header: Twitter
+    - header: توئیتر
       icon: fa fa-twitter
       url: https://twitter.com/SamanSaadi
-    - header: Facebook
+    - header: فیسبوک
       icon: fa fa-facebook
       url: https://www.facebook.com/saman.saadi
 ---
