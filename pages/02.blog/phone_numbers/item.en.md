@@ -8,7 +8,7 @@ hero_image: header.jpg
 
 taxonomy:
     category: blog
-    tag: [travel, phone, cellphone, city]
+    en_tag: [travel, phone, cellphone, city]
 ---
 
 

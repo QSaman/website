@@ -10,7 +10,7 @@ hero_image: header.png
 
 taxonomy:
     category: blog
-    tag: [credit card, finance, money]
+    en_tag: [credit card, finance, money]
 ---
 
 You can find a lot of Credit Cards with different Rewards Programs. Basically we have two rewards category: cash-based cards and point-based cards.

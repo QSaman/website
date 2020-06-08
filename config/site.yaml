@@ -6,6 +6,9 @@ metadata:
     description: 'Welcome to Saman Saadi Website'
 blog:
     hero_image: 'user://pages/files/images/my-header.jpg'
+    
+taxonomies: [category,en_tag, fa_tag]
+
 #menu:
 #    - text: Blog
 #      icon: pencil

@@ -1,0 +1,7 @@
+enabled: true
+route: '/blog'
+language:
+    en:
+        taxonomy: en_tag
+    fa:
+        taxonomy: fa_tag
