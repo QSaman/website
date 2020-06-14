@@ -22,6 +22,12 @@ feed:
     limit: 10
 pagination: true
 hero_image: user://pages/files/images/my-header.jpg
+simplesearch:
+    route: /blog/search
+    filters:
+        - @self
+        - @taxonomy: [en_tag]
+    filter_combinator: and
 ---
 
 

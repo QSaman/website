@@ -30,4 +30,13 @@ Then add `grav-skeleton-blog-site/pages/modules`.
 $ bin/gpm install mathjax
 $ bin/gpm install langswitcher
 $ bin/gpm install language-selector
+$ bin/gpm install themer 
+$ bin/gpm install anchors
+$ bin/gpm install highlight
+```
+
+## Install these themes
+
+```
+$ bin/gpm install learn2
 ```

@@ -9,7 +9,7 @@ show_sidebar: true
 hero_image: header.png
 
 taxonomy:
-    category: blog
+    category: en_blog
     en_tag: [credit card, finance, money]
 ---
 

@@ -7,7 +7,7 @@ show_sidebar: true
 hero_image: header.jpg
 
 taxonomy:
-    category: blog
+    category: en_blog
     en_tag: [travel, phone, cellphone, city]
 ---
 

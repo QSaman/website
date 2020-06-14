@@ -9,7 +9,7 @@ show_sidebar: true
 hero_image: Farsi_fonts_2020-03-22_2035_close.png
 
 taxonomy:
-    category: blog
+    category: fa_blog
     fa_tag: [فونت, چیدمان صفحه‌کلید]
 ---
 
