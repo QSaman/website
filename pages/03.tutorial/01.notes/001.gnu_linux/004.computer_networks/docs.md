@@ -4,4 +4,4 @@ taxonomy:
     category: docs
 ---
 
-Some useful commands related to network in GNU/Linux.
+#### Some useful commands for Network debugging. For more information read this [article](https://wiki.archlinux.org/index.php/Network_Debugging).

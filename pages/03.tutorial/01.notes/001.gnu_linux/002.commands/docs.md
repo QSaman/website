@@ -4,4 +4,4 @@ taxonomy:
     category: docs
 ---
 
-Some useful commands notes for me.
+#### Some useful commands that I usually use in my daily life

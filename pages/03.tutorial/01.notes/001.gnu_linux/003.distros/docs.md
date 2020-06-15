@@ -4,4 +4,4 @@ taxonomy:
     category: docs
 ---
 
-My notes regarding Gnu/Linux.
+#### All exclusive commands for a specific [Linux Distro](https://en.wikipedia.org/wiki/Linux_distribution).

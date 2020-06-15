@@ -33,4 +33,4 @@ simplesearch:
 
 ## Blog
 
-This is my personal blog
+#### Welcome to my personal blog. For tutorial please visit this [page](/tutorial/notes).

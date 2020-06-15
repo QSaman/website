@@ -4,4 +4,4 @@ taxonomy:
     category: docs
 ---
 
-All things related to Fedora distro.
+#### Check Fedora Project [website](https://getfedora.org/) for more information.

@@ -4,4 +4,5 @@ taxonomy:
     category: docs
 ---
 
-Some useful tips for programming.
+# Programming
+In this chapter you can find my notes such as programming language, useful tools. Some of them only accessible in GNU/Linux.

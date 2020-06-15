@@ -4,4 +4,4 @@ taxonomy:
     category: docs
 ---
 
-Security tools.
+Some useful commands for security tools/libraries like [OpenSSL](https://www.openssl.org/).
