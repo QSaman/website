@@ -15,3 +15,4 @@ hero_image: user://pages/files/images/my-header.jpg
 
 [تماس با من](https://www.linkedin.com/in/samansaadi?classes=btn,btn-primary,btn-lg)
 [وبلاگ شخصی](/blog?classes=btn,btn-primary,btn-lg)
+[آموزش](/tutorial?classes=btn,btn-primary,btn-lg)
