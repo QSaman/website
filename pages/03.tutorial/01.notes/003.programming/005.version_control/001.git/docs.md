@@ -4,6 +4,11 @@ taxonomy:
     category: docs
 ---
 
+* If you want to know Git root directory, the one that has `.git` directory, run the following command:
+```
+git rev-parse --show-toplevel
+```
+
 * If you want to change the email address of the last commit which you didn't push, use the following command:
 ```
 git commit --amend --author="Author Name <email@address.com>"
@@ -40,3 +45,4 @@ git difftool master...topic
 git show branch:file
 ```
 In Windows change `\` to `/`
+
