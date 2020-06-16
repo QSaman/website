@@ -10,7 +10,9 @@ show_sidebar: true
 show_breadcrumbs: true
 show_pagination: true
 content:
-    items: '@self.children'
+    items:
+        '@taxonomy':
+            category: [en_blog]
     limit: 6
     order:
         by: date
