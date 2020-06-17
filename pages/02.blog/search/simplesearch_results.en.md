@@ -2,7 +2,8 @@
 title: Blog Search results
 content:
     items:
-        - '@page.children': '/blog'
+        '@taxonomy':
+            category: [en_blog]
     order:
         by: title
         dir: desc
