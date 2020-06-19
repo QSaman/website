@@ -1,5 +1,5 @@
  ---
-theme: learn2
+theme: ebon-hawk-learn
 menu: آموزش
 routes:
     default: '/tutorial/notes'

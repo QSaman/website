@@ -33,6 +33,7 @@ $ bin/gpm install language-selector
 $ bin/gpm install themer 
 $ bin/gpm install anchors
 $ bin/gpm install highlight
+$ bin/gpm install devtools
 ```
 
 ## Install these themes
