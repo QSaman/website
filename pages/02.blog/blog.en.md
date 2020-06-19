@@ -33,6 +33,11 @@ simplesearch:
 ---
 
 
-## Blog
+## Saman Saadi
 
-#### Welcome to my personal blog. For tutorial please visit this [page](/tutorial/notes).
+### Welcome to my personal blog
+
+[Contact Me](https://www.linkedin.com/in/samansaadi?classes=btn,btn-primary,btn-lg)
+[Home](/?classes=btn,btn-primary,btn-lg)
+[Tutorial](/tutorial/notes?classes=btn,btn-primary,btn-lg)
+

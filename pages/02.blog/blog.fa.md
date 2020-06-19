@@ -32,7 +32,11 @@ simplesearch:
     filter_combinator: and
 ---
 
+## سامان سعدی
+### به وبلاگ شخصی من خوش آمدید
 
-## وبلاگ
 
-به وبلاگ شخصی من خوش آمدید. برای آموزش به این [صفحه](/tutorial/notes) مراجعه نمایید.
+[تماس با من](https://www.linkedin.com/in/samansaadi?classes=btn,btn-primary,btn-lg)
+[خانه](/?classes=btn,btn-primary,btn-lg)
+[آموزش](/tutorial/notes?classes=btn,btn-primary,btn-lg)
+
