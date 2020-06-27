@@ -1,5 +1,5 @@
 ---
-title: Secure Communication: Emails or Messaging Apps?
+title: Emails or Messaging Apps?
 date: 22:39 06/26/2020 
 
 hero_classes: text-light title-h1h2 overlay-dark-gradient hero-large parallax
