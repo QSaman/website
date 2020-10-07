@@ -7,6 +7,12 @@ My Personal Website
 php -S localhost:8000 system/router.php
 ```
 
+## Update Grav
+
+```
+bin/gpm selfupgrade -f
+```
+
 ## Cleaning the Cache
 
 ```
