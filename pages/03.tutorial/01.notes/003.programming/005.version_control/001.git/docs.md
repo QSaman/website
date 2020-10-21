@@ -4,6 +4,12 @@ taxonomy:
     category: docs
 ---
 
+* If you want to only commit modified files and no new files:
+
+```
+git status | grep -i modified | awk '{print $2}' | xargs git add
+```
+
 * If you want to know Git root directory, the one that has `.git` directory, run the following command:
 ```
 git rev-parse --show-toplevel
