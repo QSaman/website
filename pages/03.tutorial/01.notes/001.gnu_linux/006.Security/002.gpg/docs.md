@@ -8,12 +8,104 @@ taxonomy:
 
 [GNU Privacy Guard (GPG)](https://en.wikipedia.org/wiki/GNU_Privacy_Guard) is available out of the box in most GNU/Linux Distros. Both GPG and the proprietary [Pretty Good Privacy](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) implement OpenPGP standard.
 
+## Useful sites
+
+* [How To Geek](https://www.howtogeek.com/427982/how-to-encrypt-and-decrypt-files-with-gpg-on-linux/)
+
 ## Listing Current Fingerprints
 
 To see the current [public key fingerprints](https://en.wikipedia.org/wiki/Public_key_fingerprint) run the following command:
 
 ```
 gpg --fingerprint
+```
+
+## Signing and Verifying a document
+
+There are three types of signing in GPG. For more information visit [GNU PG](https://www.gnupg.org/gph/en/manual/x135.html) and this [post](https://superuser.com/questions/1579649/how-to-fix-warning-not-a-detached-signature).
+
+### `--sign`
+
+In this case the document is compressed before signed, and the output is in binary format. By default the extension is `.gpg`.
+
+```
+$ gpg --sign foo.jpg
+$ ls
+foo.jpg.gpg
+```
+
+You can verify it using the following command:
+
+```
+$ gpg --verify foo.jpg.gpg
+```
+
+You can verify and extract the file using the following command:
+
+```
+$ gpg --output my_foo.jpg --decrypt foo.jpg.gpg
+$ ls
+my_foo.jpg
+```
+Note that by default `gpg` write the content of file into `stdout`, so we used `--output`.
+
+### `--clear-sign`
+
+If the document that you want to sign is a text file (e.g. an email message), you can used `--clear-sign`. By default the extension is `asc` which is an ASCII armor file.
+
+```
+$ gpg --clear-sign foo.txt
+$ ls
+foo.txt.asc
+```
+
+It doesn't compress the data and generate a document like:
+
+```
+$ cat foo.txt
+Line1: message
+Line2: message
+```
+
+```
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Line1: message
+Line2: message
+-----BEGIN PGP SIGNATURE-----
+
+My message signature in base64
+-----END PGP SIGNATURE-----
+```
+
+It's not a good idea to use `clear-sign` for binary files. You have difficulty for retrieving the original file.
+
+### `--detach-sign`
+
+Instead of writing both the document and its signature into a file, it writes the signature in a separate file
+
+```
+$ gpg --detach-sign foo.jpg
+$ ls
+foo.jpg
+foo.jpg.sig
+```
+
+If you want to generate an ASCII armor signature file:
+
+```
+$ gpg --armor --detach-sign foo.jpg
+$ ls
+foo.jpg
+foo.jpg.asc
+```
+
+For verifying you need to have both original document and its signature:
+
+```
+$ gpg --verify foo.jpg.asc
+$ gpg --verify foo.jpg.asc foo.jpg
 ```
 
 # Verifying Integrity of a File
