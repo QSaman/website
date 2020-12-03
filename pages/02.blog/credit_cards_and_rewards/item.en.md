@@ -29,7 +29,25 @@ $$
 \end{align*}
 $$
 
-As you can see there is no compliaction here.
+As you can see there is no complication here. A more mathematically accurate calculation is as follow:
+
+$$
+\begin{align*}
+\$100 \text{ spend} &= \$2 \text{ gain} \\
+\Rightarrow \$1 \text{ spend} &= \$0.02 \text{ gain} \\
+\Rightarrow \$1 \text{ spend} &= \$2\% \text{ gain}
+\end{align*}
+$$
+
+So spending $1 earn us 2 cents. As another example spending $200 earns us $4:
+
+$$
+\begin{align*}
+\$1 \text{ spend} &= \$0.02 \text{ gain} \\
+\Rightarrow \$1 \times \$200 \text{ spend} &= \$0.02 \times \$200 \text{ gain} \\
+\Rightarrow \$200 \text{ spend} &= \$4 \text{ gain}
+\end{align*}
+$$
 
 ## Point-Based Rewards
 
@@ -41,8 +59,8 @@ Fortunately PC mentioned on the website that `10,000 points = $10`. So it's easy
 
 $$
 \begin{align*}
-10000 \text{ points} &= \$10 \\
-\Rightarrow 1 \text{ points} &= \$0.001
+10000 \text{ points} &= \$10 \text{ gain} \\
+\Rightarrow 1 \text{ points} &= \$0.001 \text{ gain}
 \end{align*}
 $$
 
@@ -50,11 +68,10 @@ Let's assume for a specific category (e.g. [SHOPPERS DRUG MART](https://www1.sho
 
 $$
 \begin{align*}
-\frac {\text{gain}} {\text{spend}} &= \frac {p \text{ points}} {\$1.00} \\
-&= \frac {p \text{ points} \times 100}{\$100.00} \\
-&= \frac {p \times \$0.001 \times 100}{\$100.00} \\
-&= \frac {p \times {\$0.1}} {\$100.00} \\
-&= \frac{p}{10} \%
+\$1 \text{ spend} &= p \text{ points} \\
+\Rightarrow \$1 \text{ spend} &= \$0.001 \times p \text{ gain} \\
+\Rightarrow \$1 \text{ spend} &= \$\frac{p}{1000} \text{ gain} \\
+\Rightarrow \$1 \text{ spend} &= \$\frac{p}{10}\% \text{ gain}
 \end{align*}
 $$
 
