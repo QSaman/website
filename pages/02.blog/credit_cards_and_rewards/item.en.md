@@ -44,7 +44,7 @@ So spending $1 earn us 2 cents. As another example spending $200 earns us $4:
 $$
 \begin{align*}
 \$1 \text{ spend} &= \$0.02 \text{ gain} \\
-\Rightarrow \$1 \times \$200 \text{ spend} &= \$0.02 \times \$200 \text{ gain} \\
+\Rightarrow \$1 \times 200 \text{ spend} &= \$0.02 \times 200 \text{ gain} \\
 \Rightarrow \$200 \text{ spend} &= \$4 \text{ gain}
 \end{align*}
 $$
