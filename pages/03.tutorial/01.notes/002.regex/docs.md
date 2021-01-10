@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-
+You can run your regex pattern with `grep -o` to see the matches or use this online [website](https://regex101.com/).
 
 # [^pattern]
 

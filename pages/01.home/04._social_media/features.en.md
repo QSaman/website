@@ -18,9 +18,6 @@ features:
     - header: Twitter
       icon: fa fa-twitter
       url: https://twitter.com/SamanSaadi
-    - header: Facebook
-      icon: fa fa-facebook
-      url: https://www.facebook.com/saman.saadi
 ---
 
 # Me on Social Media

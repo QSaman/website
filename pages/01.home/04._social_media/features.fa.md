@@ -19,9 +19,6 @@ features:
     - header: توئیتر
       icon: fa fa-twitter
       url: https://twitter.com/SamanSaadi
-    - header: فیسبوک
-      icon: fa fa-facebook
-      url: https://www.facebook.com/saman.saadi
 ---
 
 # من در شبکه‌های مجازی
