@@ -6,7 +6,7 @@ taxonomy:
 
 * Save a stream video
 
-You can press F12 in your browser. Then go to Network tab and filter `m3u8` file and then copy the URL:
+You can press F12 in your browser. Then go to Network tab and filter `m3u8` which are [HLS files](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Then copy the URL:
 
 ```
     ffmpeg -i https://*.m3u8 -c copy ~/output.mp4
