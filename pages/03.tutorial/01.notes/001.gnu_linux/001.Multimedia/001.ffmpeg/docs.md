@@ -12,6 +12,33 @@ You can press F12 in your browser. Then go to Network tab and filter `m3u8` whic
     ffmpeg -i https://*.m3u8 -c copy ~/output.mp4
 ```
 
+* Capturing Webcam and Microphone
+
+For more information visit [this](https://trac.ffmpeg.org/wiki/Capture/Webcam) and [this](https://trac.ffmpeg.org/wiki/Capture/ALSA). First we need to determine the spec of Webcam and mic:
+
+```
+$ v4l2-ctl --list-devices
+
+```
+
+In my case I need to use `/dev/video0`. If you know that your webcam support higher resolution but it records in a lower one, visit this [site](https://superuser.com/questions/494575/ffmpeg-open-webcam-using-yuyv-but-i-want-mjpeg). In my case only MJPEG supports higher resolution. For audio use this:
+
+```
+$ arecord -l
+```
+
+Now we have enough information to record both video and audio:
+
+```
+$ ffmpeg -f v4l2 -input_format mjpeg -video_size 1280x720  -i /dev/video0 -f alsa -i hw:0 /tmp/output.mp4
+```
+
+If you just want to test the webcam but don't want to save it (in my case no audio):
+
+```
+$ ffplay -f v4l2 -input_format mjpeg -video_size 1280x720  -i /dev/video0
+```
+
 * Change frame rate:
 ```
     ffmpeg -i input.mp4 -vf fps=fps=30 output.mp4
