@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-* Save a stream video
+### Save a stream video
 
 You can press F12 in your browser. Then go to Network tab and filter `m3u8` which are [HLS files](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Then copy the URL:
 
@@ -12,7 +12,7 @@ You can press F12 in your browser. Then go to Network tab and filter `m3u8` whic
     ffmpeg -i https://*.m3u8 -c copy ~/output.mp4
 ```
 
-* Capturing Webcam and Microphone
+### Capturing webcam & mic
 
 For more information visit [this](https://trac.ffmpeg.org/wiki/Capture/Webcam) and [this](https://trac.ffmpeg.org/wiki/Capture/ALSA). First we need to determine the spec of Webcam and mic:
 
@@ -39,11 +39,11 @@ If you just want to test the webcam but don't want to save it (in my case no aud
 $ ffplay -f v4l2 -input_format mjpeg -video_size 1280x720  -i /dev/video0
 ```
 
-* Change frame rate:
+### Change frame rate
 ```
     ffmpeg -i input.mp4 -vf fps=fps=30 output.mp4
 ```    
-* Change resolution:
+### Change resolution
 ```
     ffmpeg -i input -vf scale=1920:1080 output.mp4
 ```    
@@ -60,13 +60,13 @@ $ ffplay -f v4l2 -input_format mjpeg -video_size 1280x720  -i /dev/video0
 ```  
     ffmpeg -i input input.mp4 -vf scale=-1:1800 -c:v libx264 -crf 13  output.mp4
 ```    
-* Cut some part of a video:
+### Cut some part of a video
     for example cut from 00:29:00 and length of new movie is 60s. For more
     information see Seeking – FFmpeg.maff.
 ```    
     ffmpeg -ss 00:29:00 -i input.mp4 -t 60 -c copy output.mp4
 ```    
-* Cut some parts of a video and them concatenating them to form a single video file:
+Cut some parts of a video and them concatenating them to form a single video file:
 ```
     ffmpeg -i input.mp4 -t 63 -c copy -avoid_negative_ts 1 cut1.webm
     ffmpeg -ss 00:29:00 -i input.mp4 -to 00:30:00 -c copy -copyts -avoid_negative_ts 1 cut2.webm
@@ -89,7 +89,8 @@ Then use the following command to merge them:
 ```
 ffmpeg -f concat -safe 0 -i list.txt -c copy output.webm
 ```
-* Extract audio from a video without encoding. First run the following
+### Audio extraction
+If you want to extract audio from a video without encoding, first run the following
   command to find out the correct extension.
 ```  
     ffmpeg -i input.mkv
@@ -107,7 +108,7 @@ ffmpeg -f concat -safe 0 -i list.txt -c copy output.webm
   -vn means "no audio". -sn means "no subtitle"
 ```
 
-* To see the information of a file:
+### File information
 ```
     ffprobe -show_streams foo.webm
 ```    
@@ -115,7 +116,8 @@ ffmpeg -f concat -safe 0 -i list.txt -c copy output.webm
 ```  
     ffprobe -show_streams -select_streams v foo.webm
 ```    
-* If you want to rotate a video file without re-encoding, you can change the metadata of the container using the following command:
+### Rotating
+If you want to rotate a video file without re-encoding, you can change the metadata of the container using the following command:
 
 ```
 ffmpeg -i input.mp4 -c copy -metadata:s:v:0 rotate=90 output.mp4
