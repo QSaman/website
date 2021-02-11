@@ -4,6 +4,16 @@ taxonomy:
     category: docs
 ---
 
+# Plugin Tips
+
+## NERDTree
+
+If you want to synchronize the current working directory of NERDTree with open file/buffer, the following command.
+
+```
+:NERDTreeFind
+```
+
 # Tips
 
 * Add the following line to your `~/.vimrc` to access `man` in Vim. For example `:Man mpv`
