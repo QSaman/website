@@ -12,13 +12,11 @@ features:
       url: https://github.com/QSaman
     - header: وبلاگ
       icon: fa fa-pencil
-      url: /blog
+      url: /fa/blog
     - header: اینستاگرام
       icon: fa fa-instagram
       url: https://www.instagram.com/saman.saadi
-    - header: توئیتر
-      icon: fa fa-twitter
-      url: https://twitter.com/SamanSaadi
+      
 ---
 
 # من در شبکه‌های مجازی

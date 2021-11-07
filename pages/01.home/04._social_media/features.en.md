@@ -15,9 +15,7 @@ features:
     - header: Instagram
       icon: fa fa-instagram
       url: https://www.instagram.com/saman.saadi
-    - header: Twitter
-      icon: fa fa-twitter
-      url: https://twitter.com/SamanSaadi
+
 ---
 
 # Me on Social Media
