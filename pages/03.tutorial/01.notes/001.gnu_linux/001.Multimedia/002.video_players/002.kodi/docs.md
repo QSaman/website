@@ -5,18 +5,25 @@ taxonomy:
 ---
 
 # Useful Kodi Addons
-## Subtitle
-* [opensubtitle](https://github.com/opensubtitles/service.subtitles.opensubtitles_by_opensubtitles)
 
-## Information Providers
-* Universal Movie Scraper
+You can find some great addons on[Addons4Kodi](https://www.reddit.com/r/Addons4Kodi/).
+
+## Subtitle
+* [a4kSubtitles](https://a4k-openproject.github.io/a4kSubtitles/)
 
 ## Program
 * [Yatse](https://yatse.tv/wiki/yatse-kodi-addon)
-* ResolveURL Tester
 * Trakt
-* Git Browser Tool
 
-## PVR
-* [IPTV Simple Client](https://kodi.wiki/view/Add-on:IPTV_Simple_Client)
+## PVR Clients
+* [IPTV Simple Client](https://github.com/kodi-pvr/pvr.iptvsimple/)
+
+## Services
+
+* [SponsorBlock](https://github.com/siku2/script.service.sponsorblock)
+
+## Video
+
+* Youtube
+
 
