@@ -21,6 +21,13 @@ At the beginning we have a partition table that specify how many partitions we h
 
 Unlike "MBR", "GPT" doesn't require extend and logical partitions if you need more than 4 partitions. Out of the box, "GPT" supports 128 partitions. Fore more information refer to "advantages of GPT over MBR" in this [wiki](https://wiki.archlinux.org/title/Partitioning).
 
+The syntax for `mkpart` is:
+
+```
+mkpart [part-type name fs-type] start end
+```
+File-system type (`fs-type`) is required for data partitions (i.e., non-extended partitions). So If you are creating an extend partition in MBR, you shouldn't specify file-system type. For more information visit the [manual](https://www.gnu.org/software/parted/manual/html_node/mkpart.html).
+
 ### Tips
 
 * If you want to specify exact location you must use the sector unit "s". With parted 2.4 and newer IEC [binary units](https://en.wikipedia.org/wiki/Binary_prefix) like MiB, GiB, TiB, etc., specify exact locations as well. For more information refer to official [manual](https://www.gnu.org/software/parted/manual/html_node/Running-Parted.html)
