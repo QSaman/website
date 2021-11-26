@@ -6,7 +6,7 @@ taxonomy:
 
 ### Iptables Alternatives
 
-Note that [Netfilter](https://en.wikipedia.org/wiki/Netfilter) in Linux Kernel provides firewall functionality. There are some tools to use this functionality. [iptables](https://en.wikipedia.org/wiki/Iptables) is one of them. It's considered a legacy tool. [nftables](https://en.wikipedia.org/wiki/Nftables) is going to replace it.
+Note that [Netfilter](https://en.wikipedia.org/wiki/Netfilter) in Linux Kernel provides firewall functionality. There are some tools to use this functionality. [iptables](https://en.wikipedia.org/wiki/Iptables) is one of them. It's considered a legacy tool. [nftables](https://en.wikipedia.org/wiki/Nftables) is going to replace it. For a basic nftables setup you can read this [page](https://wiki.archlinux.org/title/Nftables#Simple_stateful_firewall).
 
 #### Fedora/Red Hat
 

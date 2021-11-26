@@ -4,7 +4,45 @@ taxonomy:
     category: docs
 ---
 
-# Timezone
+## Unix Epoch
+
+[Unix Epoch](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970.
+
+### Convert to Epoch
+
+Current time in epoch:
+
+```
+$ date +%s
+1637900115
+```
+
+Epoch origin:
+
+```
+$ date -d "1970-01-01 00:00:00 UTC" +%s
+0
+```
+
+### Convert from Epoch
+
+Epoch origin in local time (Eastern time):
+
+```
+$ date -d @0
+Wed 31 Dec 1969 07:00:00 PM EST
+```
+
+An arbitrary epoch:
+
+```
+$ date -d @1637900115
+Thu 25 Nov 2021 11:15:15 PM EST
+```
+
+! If you are trying to convert epoch from a programming language or a web service, it's probably in milliseconds. So you need to divide it by 1000 to convert it to seconds
+
+## Timezone
 
 * What is the date-time in Montreal next Saturday at 20:30 in Tehran?
 
@@ -60,7 +98,7 @@ $ date +%Z
 EDT
 ```
 
-# zdump
+### zdump
 
 * See when EST or EDT is effective in `America/Montreal`:
 
