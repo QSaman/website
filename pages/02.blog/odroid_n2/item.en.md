@@ -179,7 +179,7 @@ Number  Start    End      Size     Type     File system  Flags
 
 So we need to have two partitions for Ubuntu: one with the size of 128MiB and the other 7007MiB. Since we need to deal with alignment, we are using sector as a unit. A [disk sector](https://en.wikipedia.org/wiki/Disk_sector) is the minimum storage unit of hard drive. As a reminder I copied the following image from [Wikipedia](https://en.wikipedia.org/wiki/Disk_sector) that shows a disk sector (C):
 
-![disk sector](600px-Disk-structure2.svg.png)
+![disk sector](z_disk_sector.png)
 
 
 `loop11` partitions with sector as our unit:
