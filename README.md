@@ -34,6 +34,7 @@ $ bin/gpm install themer
 $ bin/gpm install anchors
 $ bin/gpm install highlight
 $ bin/gpm install devtools
+$ bin/gpm install markdown-notices
 ```
 
 ## Install these themes
