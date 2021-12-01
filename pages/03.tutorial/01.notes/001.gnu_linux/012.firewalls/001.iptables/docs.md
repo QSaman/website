@@ -4,18 +4,6 @@ taxonomy:
     category: docs
 ---
 
-### Iptables Alternatives
-
-Note that [Netfilter](https://en.wikipedia.org/wiki/Netfilter) in Linux Kernel provides firewall functionality. There are some tools to use this functionality. [iptables](https://en.wikipedia.org/wiki/Iptables) is one of them. It's considered a legacy tool. [nftables](https://en.wikipedia.org/wiki/Nftables) is going to replace it. For a basic nftables setup you can read this [page](https://wiki.archlinux.org/title/Nftables#Simple_stateful_firewall).
-
-#### Fedora/Red Hat
-
-In modern Fedora/Red Hat distors, the default tool to interact with Netfilter is `nftables`. Red Hat developed a tool named [firewalld](https://en.wikipedia.org/wiki/Firewalld) that uses `nftables` as its back-end.
-
-#### Ubuntu
-
-Ubuntu still uses iptables. By default it uses [Uncomplicated Firewall (UFW)](https://en.wikipedia.org/wiki/Uncomplicated_Firewall) on top of iptables.
-
 ### Flowchart
 
 For a complete flowchart of how iptables works refer to this [link](https://www.frozentux.net/iptables-tutorial/images/tables_traverse.jpg). A simplified versions from [Arch wiki](https://wiki.archlinux.org/title/Iptables#Basic_concepts) is below. The lowercase word on top is the table and the upper case word below is the chain. All incoming packets start from "Network" entry in the flowchart. On "Routing decision" entry it will be decided the packet is for local machine or it should be forwarded to another machine. In the former the packet goes to "INPUT" chain in "filter" table and eventually delivered to corresponding local process. In the latter the packet goes to "FORWARD" chain in filter table and after second "Routing decision" it will be sent to destination machine.
