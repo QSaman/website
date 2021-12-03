@@ -228,7 +228,9 @@ $ sudo parted /dev/sda
 Warning: The resulting partition is not properly aligned for best performance: 15878554s % 2048s != 0s
 Ignore/Cancel?
 ```
-As you can see parted expected that every partition starts with a sector that is multiple of `2048`. Let's find a suitable one:
+As you can see parted expected that every partition starts with a sector that is multiple of `2048s` (`1MiB`). Partition alignment is important for [SSD drives](https://en.wikipedia.org/wiki/Solid-state_drive) to avoid excessive [read-modify-write](https://en.wikipedia.org/wiki/Read%E2%80%93modify%E2%80%93write) cycles which leads to longer lifespan. Basically 1MiB alignment covers all common SSD page and block size scenarios because it's divisible by all commonly used sizes: 1MiB, 512KiB, 128KB, 4KiB and 512B. For more information read this section of [SSD drivers](https://en.wikipedia.org/wiki/Solid-state_drive#Partition_alignment) and [partition alignment](https://en.wikipedia.org/wiki/Partition_alignment).
+
+Let's find a suitable one:
 
 ```sh
 echo "15878554 % 2048" | bc
