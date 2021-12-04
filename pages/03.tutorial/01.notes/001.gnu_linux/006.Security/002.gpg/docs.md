@@ -110,6 +110,10 @@ $ gpg --verify foo.jpg.asc foo.jpg
 
 # Verifying Integrity of a File
 
+First you need to import the public key to verify the file. Usually you are provided with the fingerprint of the public key and maybe the public key itself. There are two options to import it.
+
+## Import Public Key Directly
+
 First you need to download the public key from the website that has `asc` extension. It's a public key in Base64 format which is called `ASCII armor` file in OpenGPG [Standard](https://en.wikipedia.org/wiki/Base64#OpenPGP).
 
 You can check fingerprint of the public key without importing it by running this command:
@@ -121,9 +125,8 @@ gpg --keyid-format long --import --import-options show-only --with-fingerprint p
 Then check the output and make sure fingerprint is the one that you expect. If you see a message like `signatures not checked due to missing keys` then you can use [OpenGPG Web of Trust](https://en.wikipedia.org/wiki/Web_of_trust) to remove it. For example you can import the public key of a well-known Debian developer like Jan Dittberner from Debian keyring [website](https://keyring.debian.org/) using the following command:
 
 ```
-gpg --keyserver keyring.debian.org --recv-keys B2FF1D95CE8F7A22DF4CF09BA73E0055558FB8DD
+gpg --recv-keys B2FF1D95CE8F7A22DF4CF09BA73E0055558FB8DD
 ```
-
 You can check who sign a specific public key using this command:
 
 ```
@@ -140,8 +143,25 @@ gpg --import public_key.asc
 
 Note that if you see `no ultimately trusted keys found` it means you didn't create an OpenGPG key yet, which is not important for verifying a file.
 
+## Download Public Key Using a Keyserver
 
-Now that we import the public key, it's time to verify the file itself. Usually there should be a signature in ASCII armored format in download page. Using that you can verify the file:
+If you have the fingerprint you can use the following command to import public key. Note that fingerprint may have space characters.
+
+```
+gpg --recv-keys [fingerprint]
+```
+
+Note that in some other tutorial they use something like `gpg --keyserver ...`. Since GnuPG 2.1 this option is deprecated and you should use `dirmgr`. Since all reputable keyservers are in sync, it's not very important to specify a keyserver. If you don't specify it, the default one is used. For more information read this Arch Wiki [page](https://wiki.archlinux.org/title/GnuPG#Configuration_files).
+
+## Confirming the file
+
+If you imported the keys before, it's important to refresh them to make sure none of them is revoked:
+
+```
+$ gpg --refresh-keys
+```
+
+Usually there should be a signature in ASCII armored format in download page. Using that you can verify the file:
 
 ```
 gpg --verify-options show-notations --verify signature.asc file

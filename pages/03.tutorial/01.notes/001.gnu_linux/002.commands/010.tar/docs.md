@@ -4,6 +4,51 @@ taxonomy:
     category: docs
 ---
 
+## List the content of a tar file
+
+```
+tar -tvf /path/to/tar
+```
+
+## Extract a tar file
+
+```
+tar -xvf /path/to/tar
+```
+
+## Extract a tar file to `/usr/local`
+
+Let's assume `foo.tar` has the following structure:
+
+```
+$ tar -tvf foo.tar
+foo0.1/
+foo0.1/bin/
+foo0.1/bin/foo
+foo0.1/include/
+foo0.1/include/foo.h
+foo0.1/lib/
+foo0.1/lib/libfoo.so
+foo0.1/share/
+foo0.1/share/man/
+foo0.1/share/man1/
+foo0.1/share/man/man1/foo.1
+```
+
+We want to copy its content in such a way that we have:
+
+```
+usr/local/bin/foo
+usr/local/include/foo.h
+usr/local/lib/libfoo.so
+usr/local/share/man/man1/foo.1
+```
+
+We can achieve it by running the following command:
+
+```
+$ sudo tar -xvf foo.tar --strip-components=1 -C /usr/local/
+```
 
 ## Tar Files On the Fly over the Network
 
