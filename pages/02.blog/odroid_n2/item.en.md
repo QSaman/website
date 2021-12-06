@@ -15,7 +15,7 @@ There are a lot of [single-board computers](https://en.wikipedia.org/wiki/Single
 
 ===
 
-[Odroid series](https://en.wikipedia.org/wiki/ODROID) are developed by South Korean company named [HardKernel](https://www.hardkernel.com/). Odroid N2+ price is close to Raspberry Pi 4 but it's more powerful. You can watch 4K HDR movies smoothly. It's based on [Amlogic S922X](https://en.wikipedia.org/wiki/Amlogic#Media_player_SoCs_(S9_family_gen_2)) [SoC (System on a chip)](https://en.wikipedia.org/wiki/System_on_a_chip) that contains Quad-core Cortex-A73 and Dual-core Cortex-A53 CPUs and Mali-G52 GPU. Fore more information about specification you can refer to this [page](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/).
+[Odroid series](https://en.wikipedia.org/wiki/ODROID) are developed by South Korean company named [HardKernel](https://www.hardkernel.com/). Odroid N2+ price is close to Raspberry Pi 4 but it's more powerful. You can watch 4K HDR movies smoothly. It's based on [Amlogic S922X](https://en.wikipedia.org/wiki/Amlogic#Media_player_SoCs_(S9_family_gen_2)) [SoC (System on a chip)](https://en.wikipedia.org/wiki/System_on_a_chip) that contains Quad-core Cortex-A73 and Dual-core Cortex-A53 CPUs and Mali-G52 GPU. For more information about the specification you can refer to this [page](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/).
 
 You can use it as a media center by installing [Kodi](https://en.wikipedia.org/wiki/Kodi_(software)) or your personal [NAS](https://en.wikipedia.org/wiki/Network-attached_storage) or your personal server. Since it doesn't require a fan for cooling it's very quiet.
 
