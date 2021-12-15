@@ -8,14 +8,21 @@ taxonomy:
 
 If you want to have a https web server in your local network. First you need to create the certificate and then manually add it to your web browser to avoid warnings.
 
-### Create a self-signed Certificate
+### Self-signed Certificate
 
-Create a config file as below. According to OpenWrt [wiki](https://openwrt.org/docs/guide-user/luci/getting_rid_of_luci_https_certificate_warnings), browsers usually only look at one key part of a self-signed certificate that is CN (common name). However, starting with Chrome 58, SAN (subject alt name of DNS name) is also checked. So it is important in the following config `CN` matches `DNS.1` with a valid local DNS or a host name. Also `IP.1` should have the correct local IP address. Let's assume `CN` and `DNS.1` have value `foo.lan`, then `IP.1` should have the result IP address of the following `ping` command:
+Create a config file as below. According to OpenWrt [wiki](https://openwrt.org/docs/guide-user/luci/getting_rid_of_luci_https_certificate_warnings), browsers usually only look at one key part of a self-signed certificate that is CN (common name). However, starting with Chrome 58, SAN (subject alt name of DNS name) is also checked. So it is important in the following config `CN` matches one of `DNS` fields with a valid local DNS. Also `IP` fields should have the correct local IP address.
+
+#### Single Domain Config
+
+Let's assume we want to create a certificate for `foo.lan`, then `IP` should have the result IP address of the following `ping` command:
 
 ```
 $ ping foo.lan
-192.168.1.1
+PING foo.lan (192.168.1.1)...
+...
 ```
+
+Using above information, we have:
 
 ```
 $ cat /etc/ssl/myconfig.conf
@@ -40,17 +47,108 @@ extendedKeyUsage    = serverAuth
 subjectAltName      = @alt_names
 
 [alt_names]
+DNS                 = foo.lan
+IP                  = 192.168.1.1
+```
+
+#### Subdomains Config using Wildcards
+
+Let's assume `192.168.1.1` hosts our web server. We want to have a certificate for `foo.lan`, `sub1.foo.lan` and `sub2.foo.lan` and all other future subdomains (e.g. `bar.foo.lan`). Let's assume from `192.168.1.2` we want to access our web server. The following `ping` command should be resolved to `192.168.1.1` from `192.168.1.2`:
+
+```
+$ ping foo.lan
+PING foo.lan (192.168.1.1)...
+...
+
+$ ping sub1.foo.lan
+PING foo.lan (192.168.1.1)...
+...
+
+$ ping sub2.foo.lan
+PING foo.lan (192.168.1.1)...
+...
+```
+If they don't, you need to add domain and its subdomain to `/etc/hosts` of `192.168.1.2` or use better alternatives. Now we are using the following config:
+
+```
+[req]
+distinguished_name  = req_distinguished_name
+x509_extensions     = v3_req
+prompt              = no
+string_mask         = utf8only
+
+[req_distinguished_name]
+C                   = CA
+ST                  = QC
+L                   = Montreal
+O                   = FreeDove
+OU                  = FreeDove
+CN                  = *.foo.lan
+
+[v3_req]
+keyUsage            = nonRepudiation, digitalSignature, keyEncipherment
+extendedKeyUsage    = serverAuth
+subjectAltName      = @alt_names
+
+[alt_names]
 DNS.1               = foo.lan
-IP.1                = 192.168.1.1
+IP                  = 192.168.1.1
+DNS.2               = *.foo.lan
 ```
 
-Then you can generate a certificate and a private key by:
+`man x509v3_config` describes the reason for `DNS.1` and `DNS.2`:
+
+
+> Due to the behaviour of the OpenSSL conf library the same field name can only occur once in a section. This means that:
 
 ```
-$ sudo openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout /etc/ssl/private/mycert.key -out /etc/ssl/certs/mycert.crt -config /etc/ssl/myconfig.conf
+        subjectAltName=@alt_section
+
+        [alt_section]
+
+        email=steve@here
+        email=steve@there
+```
+
+> will only recognize the last value. This can be worked around by using the form:
+
+```
+        [alt_section]
+
+        email.1=steve@here
+        email.2=steve@there
+```
+
+#### Generate Certificate and Private Key
+
+You can generate a certificate and a private key by:
+
+```
+$ sudo openssl req -x509 -nodes -days 730 -newkey rsa:4096 -keyout /etc/ssl/private/mycert.key -out /etc/ssl/certs/mycert.crt -config /etc/ssl/myconfig.conf
+```
+
+You can try below commands to see other options for [X.509](https://en.wikipedia.org/wiki/X.509):
+
+```
+$ man openssl-req
+$ man openssl-x509
 ```
 
 For more information read OpenWrt [wiki](https://openwrt.org/docs/guide-user/luci/getting_rid_of_luci_https_certificate_warnings).
+
+#### View Certificate
+
+You can see certificate contents by:
+
+```
+$ openssl x509 -text -fingerprint -in /etc/ssl/certs/mycert.crt
+```
+
+For more information:
+
+```
+$ man openssl-x509
+```
 
 ### Add Self-Signed Certificate to Linux Client
 
@@ -66,7 +164,26 @@ For Firefox you need to find Firefox home directory. Usually it's in `~/.mozilla
 $ certutil -d ~/.mozilla/firefox/[string].default-release -A -t "CT,C,c" -n foo -i mycert.crt
 ```
 
-For more information read this Arch [wiki](https://wiki.archlinux.org/title/User:Grawity/Adding_a_trusted_CA_certificate).
+For viewing items in Firefox database:
+
+```
+$ certutil -d ~/.mozilla/firefox/[string].default-release -L
+Certificate Nickname                                         Trust Attributes
+                                                             SSL,S/MIME,JAR/XPI
+
+foo                                                          CT,C,c
+```
+
+To delete it:
+
+```
+$ certutil -d ~/.mozilla/firefox/[string].default-release -D -n foo
+```
+
+For more information:
+
+* [Network Security Services](https://wiki.archlinux.org/title/Network_Security_Services)
+* [Adding a trusted CA certificate](https://wiki.archlinux.org/title/User:Grawity/Adding_a_trusted_CA_certificate).
 
 ## Checking for Expiry Date
 
@@ -116,3 +233,7 @@ openssl crl -text -noout -in crl.pem
 ```
 
 For more information run `man openssl-crl` or `openssl crl -help`.
+
+### Useful Links
+
+* [OpenSSL on Arch Wiki](https://wiki.archlinux.org/title/OpenSSL)
