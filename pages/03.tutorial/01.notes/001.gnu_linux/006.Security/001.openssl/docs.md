@@ -68,9 +68,11 @@ $ ping sub2.foo.lan
 PING foo.lan (192.168.1.1)...
 ...
 ```
-If they don't, you need to add domain and its subdomain to `/etc/hosts` of `192.168.1.2` or use better alternatives. Now we are using the following config:
+If they don't, you need to add domain and its subdomain to `/etc/hosts` of `192.168.1.2` or use better alternatives. Now we are using the following config in `192.168.1.1`:
 
 ```
+$ cat /etc/ssl/myconfig.conf
+
 [req]
 distinguished_name  = req_distinguished_name
 x509_extensions     = v3_req
@@ -141,14 +143,16 @@ For more information read OpenWrt [wiki](https://openwrt.org/docs/guide-user/luc
 You can see certificate contents by:
 
 ```
-$ openssl x509 -text -fingerprint -in /etc/ssl/certs/mycert.crt
+$ openssl x509 -pubkey -fingerprint -text -in /etc/ssl/certs/mycert.crt
 ```
 
-For more information:
+The output is public key, fingerprint, signature algorithm, issuer and subject names, serial number, start and expiry dates, and so on. For more information:
 
 ```
 $ man openssl-x509
 ```
+
+You can see the structure of X.509 certificate in this [wiki](https://en.wikipedia.org/wiki/X.509#Structure_of_a_certificate).
 
 ### Add Self-Signed Certificate to Linux Client
 
