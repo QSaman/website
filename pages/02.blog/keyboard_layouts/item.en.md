@@ -1,6 +1,6 @@
 ---
 title: Keyboard Layouts
-date: 12:16 01/09/2022 
+date: 12:19 01/30/2022 
 
 hero_classes: text-light title-h1h2 overlay-dark-gradient hero-large parallax
 show_sidebar: true
@@ -11,7 +11,7 @@ taxonomy:
     en_tag: [keyboard layout, french, english, linux, windows]
 ---
 
-Most keyboards send [scancodes](https://en.wikipedia.org/wiki/Scancode) when we press a key. It contains the row and column of the key. It's the responsibility of the Operating System to convert it to a character. This mapping is done by [keyboard layout](https://en.wikipedia.org/wiki/Keyboard_layout).
+Most keyboards send [scancodes](https://en.wikipedia.org/wiki/Scancode) when a keys are pressed which contain the row and column of the key. It's the responsibility of the Operating System to convert them into characters. This mapping is done by [keyboard layouts](https://en.wikipedia.org/wiki/Keyboard_layout).
 
 ===
 
@@ -28,27 +28,25 @@ The most important ones are ANSI and ISO. The former is common in North America 
 ![ANSI Physical Layout](ANSI.jpg)
 ![ISO Physical Layout](ISO.jpg)
 
-It's possible we have more than two keyboards with ANSI layout but different labels.
-
 ## Visual layout
 
-It's the labels that are on the keys. This is the most useless layout, specially if you are a touch typist. It's possible there is a mismatch between this and functional layout that leads to confusion because the typed letter is not the expected one.
+Labels on the keys creating this layout. If you are a touch typist, usually you don't care a lot about this layout. You can even buy blank keyboards that don't have any labels. Sometimes there are mismatches between keyboard labels and the actual characters that are shown on the screen.
 
 ## Functional Layout
 
-This is the most important category and I'm going to talk about it in more details. You can change it in the Operating System. When you choose for example English layout, then Operating system knows how to convert scancodes to English letters.
+This is the most important category that is responsible for converting scancodes to actual characters. You can change it in the Operating System. When you choose for example English layout, then Operating system knows how to convert scancodes to English letters. Although your keyboard has English labels, you can type in other languages by changing functional layout.
 
 # Canadian French
 
-Unlike France and Belgium that are using [AZERTY](https://en.wikipedia.org/wiki/AZERTY), Canadian French is based on [QWERTY](https://en.wikipedia.org/wiki/QWERTY). So it's more programming-friendly.
+Unlike France and Belgium that are using [AZERTY](https://en.wikipedia.org/wiki/AZERTY), Canadian French is based on [QWERTY](https://en.wikipedia.org/wiki/QWERTY).
 
-In Linux by default a simplified French layout is used that surprisingly missing some French characters! For example œ, æ and ë. If you're a programmer, it's likely you are used to US keyboards. So you may have difficulty to type characters like `#`, `{`, `}` and so on which are common in programming languages.
+In Linux by default a simplified French layout is used that surprisingly missing some French characters! For example œ, æ and ë. If you're a programmer, it's likely you are used to US keyboards. So you may have difficulty to type characters like `#`, `{`, `}` which are common in programming languages.
 
 ![Simplified Canadian French Layout](KB_Canadian_French_text.svg)
 
 There are two key modifiers to type French characters:
 
-* [dead keys](https://en.wikipedia.org/wiki/Keyboard_layout#Dead_keys): When you press a dead key nothing happens but it changes the behavior of the next key. For example in Simplified French layout above, the key right to key `P` is a dead key. If we press it nothing happens but if we press `a` after it, we will type `à`. We can type the actual dead key by pressing `space` after it
+* [dead keys](https://en.wikipedia.org/wiki/Keyboard_layout#Dead_keys): When you press a dead key nothing happens but it changes the behavior of the next key. For example in Simplified French layout above, the key right to key `P` is a dead key. If we press it nothing happens but if we press `a` after it, the character `â` is shown on the screen. We can type the actual dead key (`^`) by pressing `space` key after it
 * [Alt GR](https://en.wikipedia.org/wiki/AltGr_key): In US keyboards it's usually the right `Alt` key. For example to type `@` in simplified French layout, we should type `Alt GR + 2`
 
 A more recent French Layout is [CSA keyboard](https://en.wikipedia.org/wiki/CSA_keyboard) which seems a bit [complicated](http://www.farah.cl/Keyboardery/A-Visual-Comparison-of-Different-National-Layouts/#enCAmu). This is the default keyboard in Windows 10. It has another modifier key (right Control in Windows) to type some characters (e.g. `Æ`).
@@ -64,9 +62,9 @@ Surprisingly in Linux this layout is separated into two layouts:
 
 For more information type `man xkeyboard-config`.
 
-## A programming-friendly layout for French
+## A programming-friendly layout for European languages
 
-If you prefer a US layout that let you type most European characters, including French, you can use [EurKEY](https://en.wikipedia.org/wiki/EurKEY). You can use it out-of-the-box in Linux but you need to install it in Windows or MacOS. It uses a US layout as a base and supports almost all European characters. For more information visit its official [webpage](https://eurkey.steffen.bruentjen.eu/start.html).
+[EurKEY](https://en.wikipedia.org/wiki/EurKEY) is based on US layout as well as almost all European characters. You can use it out-of-the-box in Linux but you need to install it in Windows or MacOS. For more information visit its official [webpage](https://eurkey.steffen.bruentjen.eu/start.html).
 
 ![EurKEY Layout](KB_EurKEY.svg)
 
