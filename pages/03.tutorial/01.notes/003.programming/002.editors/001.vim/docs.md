@@ -12,7 +12,7 @@ You can type `:h reg` and then press `CTRL+D` to see all subjects that contain "
 
 ### Navigating a help file
 
-You can use `CTRL+]` to follow a tag. You can use `CTRL+o` or `CTRL+t` to return back.
+You can use `CTRL+]` to follow a tag. You can use `CTRL+o` or `CTRL+t` to return back. If you change your mind you can use `CTRL+i` to undo the return back.
 
 ## Plugins
 
@@ -312,10 +312,59 @@ If we have more than one window in the current tab, moves the current window to 
 
 Make the current window the only one on the screen. All other windows are closed.
 
+## Tabs are not buffers
+
+Unlike other editors, tabs are different in Vim:
+
+* A buffer is a file in memory
+* A window is a viewport of a buffer. It is possible multiple windows are showing different portions of the same buffer
+* A tab is a collection of windows
+
+For a good explanation you can read these Stack Overflow [post 1](https://stackoverflow.com/questions/26708822/why-do-vim-experts-prefer-buffers-over-tabs/26710166#26710166), [post 2](https://stackoverflow.com/a/21338192) and this Wiki [page](https://vim.fandom.com/wiki/Category:Tabs).
 
 ## Buffers
 
-Use `:buffers` or `:ls` to see the list of buffers. For example if you have multiple windows and you press `CTRL-w o` to close all windows except the current one, Vim add all the closed ones to buffer list. You can reopen them using `:buffer`. The argument is buffer number or buffer name. You can also open a buffer using `N CTRL-^` which `N` is buffer number.
+### Switching to previous buffer
+
+You can use `CTRL-6` or `CTRL-^` or `:e #` to switch to alternate buffer. Mostly the alternate buffer is the previously edited file.
+
+### Listing buffers
+
+Use `:ls` or `:buffers` or `:files` to see the list of buffers. You can use `:ls!` to include unlisted buffers (e.g. `:h windows` opens `windows.txt` and puts the corresponding buffer in the unlisted).
+
+### Delete buffers
+
+You can use `:bdelete` or `:bd` to delete a buffer and move it to unlisted (you can still see it using `:ls!`). The argument is buffer number or buffer name. You can also use a range (e.g. `:5-10bd` deletes buffers in the range `[5, 10]` or `:%bd` deletes all buffers).
+
+### Split the window with a new unnamed buffer
+
+You can use `:new` to split the current window horizontally with a new buffer. If you want to split it vertically, you should use `:vnew`.
+
+## Use Tabs efficiently
+
+You can read this Wiki [page](https://vim.fandom.com/wiki/Quick_tips_for_using_tab_pages) for more tips.
+
+### Open help page in a new tab
+
+Let's say you want to read about windows but you don't want to pollute the current tab:
+
+```
+:tab help windows
+:tab h windows
+```
+
+### Closing a tab
+
+You can use `:tabclose` to close a tab page with all its windows.
+
+
+### Differences between current buffer and the corresponding file before loading
+
+You can use `:tab split` to open a new window on a new tab that shows the current buffer. Note that a diff view of two or more buffers is local to the tab page. Now you can use `:DiffOrig` to see the differences.
+
+### Mini-sessions
+
+If you remove 'tabpages' from `sessionoptions` (`:set sessionoptions-=tabpages`), then you can save the current buffer list as well as other settings using `:mksession ~/my_project.vim`. When you start Vim later, you can use `:source ~/my_project.vim` to restore it.
 
 ### Useful Links for buffers
 * [Buffers](https://vim.fandom.com/wiki/Buffers)
