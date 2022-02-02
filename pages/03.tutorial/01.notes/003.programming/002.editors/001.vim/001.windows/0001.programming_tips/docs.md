@@ -28,6 +28,14 @@ Now you can use `ag` inside vim. For example you can search for "vector" in all 
 
 when quick fix window is opened you can open the file in a **new window** using `CTRL+ENTER`.
 
+Instead of `:grep` you can use:
+
+```
+:cexpr(system('ag --cpp vector'))
+```
+
+Like `:grep` you can use `:cwindow` and other commands.
+
 ### Location window
 
 It's a window-local quick fix window. Let's say you have two projects `~/src/foo` and `~/src/bar` and you are working on `foo`. But you need to look for something on `bar`. You open `bar` on a new tab in Vim. You can even change the working directory for this tab using `:tcd` command. Now you want to search for something in `bar` but you don't want to modify quick fix that is used by `foo`. You can use location list using `:lgrep` command. Now you can open location window using `:lwindow`. The list of some commands:

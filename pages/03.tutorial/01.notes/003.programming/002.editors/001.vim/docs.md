@@ -75,6 +75,14 @@ You can use `:tcd` to change working directory for current tab. You can use `:lc
 
 For more information read this wiki [page](https://vim.fandom.com/wiki/Power_of_g)
 
+## Highlight a pattern
+
+```
+:match ErrorMsg /pattern/
+```
+
+For a list of highlight groups try `:h highlight-groups`
+
 
 ## Yank the entire buffer into a register
  You can yank in `command mode`. For example `:%y 0` copy the entire buffer into `0` register
