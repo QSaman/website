@@ -40,9 +40,25 @@ $ ffplay -f v4l2 -input_format mjpeg -video_size 1280x720  -i /dev/video0
 ```
 
 ### Change frame rate
+
 ```
-    ffmpeg -i input.mp4 -vf fps=fps=30 output.mp4
+ffmpeg -i input.mp4 -r 30 output.mp4
 ```    
+
+or
+
+```
+ffmpeg -i input.mp4 -vf fps=fps=30 output.mp4
+```
+
+For more information visit this [page](https://trac.ffmpeg.org/wiki/ChangingFrameRate)
+
+### Change resolution and frame rate
+
+```
+ffmpeg -i input.mp4 -r 30 -vf scale=-1:1080 -acodec copy output.mp4
+```
+
 ### Change resolution
 ```
     ffmpeg -i input -vf scale=1920:1080 output.mp4
