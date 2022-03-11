@@ -148,9 +148,9 @@ ffprobe -v quiet output.mp4 -show_streams | grep rot
 #### Convert a side by side 3D movie to 2D
 
 ```
-ffmpeg -i input -vf stereo3d=sbsl:ml test.mp4
+ffmpeg -i input -vf stereo3d=sbs2l:ml test.mp4
 ```
-* `sbsl`: side by parallel
+* `sbs2l`: side by side parallel with half width resolution (left eye left, right eye right)
 * `ml`: mono output (left eye only)
 
 For more information visit [this](https://trac.ffmpeg.org/wiki/Stereoscopic) and [this](https://ffmpeg.org/ffmpeg-filters.html#stereo3d)
