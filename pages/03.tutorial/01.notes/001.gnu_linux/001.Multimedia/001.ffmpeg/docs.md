@@ -142,3 +142,15 @@ You can check the metadata using the following command:
 ```
 ffprobe -v quiet output.mp4 -show_streams | grep rot
 ```
+
+### 3D Filter
+
+#### Convert a side by side 3D movie to 2D
+
+```
+ffmpeg -i input -vf stereo3d=sbsl:ml test.mp4
+```
+* `sbsl`: side by parallel
+* `ml`: mono output (left eye only)
+
+For more information visit [this](https://trac.ffmpeg.org/wiki/Stereoscopic) and [this](https://ffmpeg.org/ffmpeg-filters.html#stereo3d)
