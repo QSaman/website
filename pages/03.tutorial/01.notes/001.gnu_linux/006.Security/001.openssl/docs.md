@@ -4,6 +4,88 @@ taxonomy:
     category: docs
 ---
 
+## [Symmetric encryption](https://en.wikipedia.org/wiki/Symmetric-key_algorithm)
+
+We can use `enc` command. For more information try `man openssl-enc`. We are going to use [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) to increase security. For a simple explanation of this technique refer to this [page](https://simplicable.com/new/key-derivation-function). For generating password we are going to use `-aes-256-cbc` For more information refer to [AES](https://simplicable.com/new/key-derivation-function) and [Cipher block chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_block_chaining_(CBC)):
+
+```
+openssl enc --pbkdf2 -aes-256-cbc -in plaintext.txt -out secret.txt
+```
+You can try `openssl enc --list` to see all available symmetric algorithms. For decrypting we must use `-d` flag:
+
+```
+openssl enc --pbkdf2 -aes-256-cbc -d -in secret.txt -out plain.txt
+```
+
+## [Asymmetric encryption](https://en.wikipedia.org/wiki/Public-key_cryptography)
+
+### Generating a private key
+Ware going to use [RSA (Rivest–Shamir–Adleman)](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) algorithm. According to openssl documentation (try `man openssl`), `genrsa` is superseded by `genpkey`. So using the latter is recommended. For more information try `man openssl-genpkey`
+
+```
+openssl genpkey -algorithm RSA -out private.pem
+```
+
+The output is in [Privacy-Enhanced Mail (PEM)](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format. Basically it utilizes [base64](https://en.wikipedia.org/wiki/Base64) to convert the binary format [Distinguished Encoding Rules (DER)](https://en.wikipedia.org/wiki/X.690#DER_encoding) into a text one that is easily transferable in text-based protocols like HTTP. The PEM format has the following structure:
+
+```
+-----BEGIN label-----
+data
+-----END label-----
+```
+In our case `label` is `PRIVATE KEY`:
+
+```
+-----BEGIN PRIVATE KEY-----
+data
+-----END PRIVATE KEY-----
+```
+
+####  The traditional method: `genrsa`
+
+If we use `genrsa` command to generate a private key. It's in SSLeay format. Openssl documentation (try `man openssl-rsa`) recommend to use [PKCS#8](https://en.wikipedia.org/wiki/PKCS). Note that in SSLeay the label is `RSA PRIVATE KEY`, instead of `PRIVATE KEY`:
+
+```
+-----BEGIN RSA PRIVATE KEY-----
+data
+-----END RSA PRIVATE KEY-----
+```
+
+We're going to generate a private key in SSLeay format:
+```
+openssl genrsa -out ssleay.pem 2048
+```
+Then we convert it into PKCS#8 using the following command:
+
+```
+openssl pkcs8 -in ssleay.pem -topk8 -nocrypt -out private.pem
+```
+
+Now our private key should have the following structure (Note that label doesn't have `RSA` anymore):
+
+```
+-----BEGIN PRIVATE KEY-----
+data
+-----END PRIVATE KEY-----
+```
+
+### Generating a public key
+
+We use `rsa` command to generate a public key. For more information try `man openssl-rsa`. 
+
+```
+openssl rsa -in private.pem -out public.pem -pubout
+```
+
+The public key is in PEM format. Now we can use the following command to encrypt and decrypt a file:
+
+```
+echo "hello world" > ./plain.txt
+openssl rsautl -encrypt -inkey public.pem -pubin -in plain.txt -out rsa-encrypted.txt
+openssl rsautl -decrypt -inkey private.pem -in rsa-encrypted.txt -out rsa-decrypted.txt
+cat rsa-decrypted.txt
+```
+
 ## Self-signed Certificates
 
 If you want to have a https web server in your local network. First you need to create the certificate and then manually add it to your web browser to avoid warnings.
