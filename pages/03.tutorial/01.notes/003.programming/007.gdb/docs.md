@@ -46,6 +46,12 @@ run
 
 If you enter `run` again, it restart the execution.
 
+### Run from main
+
+```
+start
+```
+
 ### Stack trace
 
 ```
