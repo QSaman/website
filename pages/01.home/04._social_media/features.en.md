@@ -12,10 +12,6 @@ features:
     - header: Blog
       icon: fa fa-pencil
       url: /blog
-    - header: Instagram
-      icon: fa fa-instagram
-      url: https://www.instagram.com/saman.saadi
-
 ---
 
 # Me on Social Media
