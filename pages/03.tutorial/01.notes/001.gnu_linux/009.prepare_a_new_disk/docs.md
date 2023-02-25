@@ -35,7 +35,7 @@ Note that `mkpart` does not create a new file system. By specifying `ext4`, we h
 
 Now we have a new partition name `/dev/sda1` (Note that `dev/sda` is the name of drive). To make sure the partition is fully aligned, you can run `align-check optimal 1` in interactive mode. Here `1` is partition number.
 
-### Create a File System on New Partition
+### Create a File System on New External Drive Partition
 
 We use `ext4` as a new file system.:
 
@@ -48,6 +48,14 @@ Note that if you use `/dev/sda` (the name of disk, instead of partition), `mkfs.
 We assume we are using this drive for large files like movies. `largefile4` is defined in `/etc/mke2fs.conf`. It has `4194304` [inode](https://en.wikipedia.org/wiki/Inode) ratio. In other words it creates one [inode](https://en.wikipedia.org/wiki/Inode) for every `4 MiB` (`419304` bytes). As a reminder every file, directory or link occupies one [inode](https://en.wikipedia.org/wiki/Inode). You cannot add new files if there is no empty inode, even if there are empty spaces. By specifying`4 Mib` inode ration,  we assumed the average file size is above `4 MiB`. Fore more information visit [Arch Wiki](https://wiki.archlinux.org/title/Ext4#Bytes-per-inode_ratio).
 
 By default `ext4` occupy `5%` of the disk for super user. We can set it to `0%` by `-m 0`. Since it's for movie archive, we won't have a problem in future. We can change it later. For more information visit [Arch Wiki](https://wiki.archlinux.org/title/Ext4#Reserved_blocks). 
+
+### Creating a File System on a New Flash Drive Partition
+
+Since the size of a flash drive is not large, we can use `-i` which defines "bytes-per-inode". If we assume the average file size is `128 KiB` (`131072 bytes`), we can specify it explicitly:
+
+```
+sudo mkfs.ext4 -i 131072  -m 0 -L NixData /dev/sda3
+```
 
 ### Useful Links
 
