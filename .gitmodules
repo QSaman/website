@@ -1,0 +1,6 @@
+[submodule "themes/ebon_hawk"]
+	path = themes/ebon_hawk
+	url = https://github.com/QSaman/ebon_hawk.git
+[submodule "themes/ebon-hawk-learn"]
+	path = themes/ebon-hawk-learn
+	url = https://github.com/QSaman/ebon-hawk-learn.git

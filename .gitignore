@@ -1,7 +1,6 @@
 accounts/*
 data/*
 plugins/*
-themes/*
 !.gitkeep 
 .directory
 *.swp
