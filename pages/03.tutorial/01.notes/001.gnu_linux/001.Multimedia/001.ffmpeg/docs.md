@@ -4,6 +4,22 @@ taxonomy:
     category: docs
 ---
 
+### Concatenating vide files
+
+First create a file with the name of files to concatenate. For example:
+
+```
+cat files.txt
+file 'file 1.mp4
+file 'file 2.mp4'
+```
+
+Then
+
+```
+ffmpeg -f concat -safe 0 -i files.txt -c copy output.mp4
+```
+
 ### Save a stream video
 
 You can press F12 in your browser. Then go to Network tab and filter `m3u8` which are [HLS files](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Then copy the URL:
