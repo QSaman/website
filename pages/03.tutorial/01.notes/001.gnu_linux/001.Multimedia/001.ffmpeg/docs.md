@@ -6,7 +6,9 @@ taxonomy:
 
 ### Concatenating vide files
 
-First create a file with the name of files to concatenate. For example:
+#### Non-decoding approach
+
+This method doesn't requires any decoding and ffmpeg concatenate the streams byte by byte. However, if there is mismatches, it fails. First create a file with the name of files to concatenate. For example:
 
 ```
 cat files.txt
@@ -14,11 +16,60 @@ file 'file 1.mp4
 file 'file 2.mp4'
 ```
 
-Then
+then:
 
 ```
 ffmpeg -f concat -safe 0 -i files.txt -c copy output.mp4
 ```
+
+Sometimes it fails. For example:
+
+```
+[aost#0:1/copy @ 0x558032d2af00] Non-monotonic DTS; previous: 67814400, current: 36167680; changing to 67814401. This may result in incorrect timestamps in the output file.
+[aac_adtstoasc @ 0x7f4fa0000f00] Error parsing ADTS frame header!
+```
+There is a warning and error here. First some vocabulary
+
+* DTS: Decoding timestamp tells the decoder when to decode each frame. It should increase monotonically.
+* PTS: presentation timestamp tells when to display it
+
+The warning is now clear. The second error means that one file is in ADTS which not-compatible for mp4. That means we need to fix DTS and encode the audio:
+
+```
+ffmpeg -fflags +genpts -i "file 1.mp4" -c:v copy -c:a aac -b:a 125k normalized1.mp4
+```
+
+Note that 125k is used because `file 1.mp4` uses 125k. You can verify it by:
+
+```
+ffmpeg -i "file 1.mp4"
+```
+
+Now we can use normalized1.mp4 as before for concatenating.
+
+#### Decoding approach
+
+This is more flexible and it works with different codecs. However, it requires encoding again.
+
+```
+ffmpeg -i "file 1.mp4" -i "file 2.mp4" \
+-filter_complex "[0:v][0:a][1:v][1:a]concat=n=2:v=1:a=1[v][a]" \
+-map "[v]" -map "[a]" \
+-c:v libx264 -crf 18 -preset medium \
+-c:a aac -b:a 192k \
+output.mp4
+```
+
+Here is the explanation for `filter_complex`:
+
+```
+[0:v]  → video stream from input #0  
+[0:a]  → audio stream from input #0  
+[1:v]  → video stream from input #1  
+[1:a]  → audio stream from input #1
+```
+
+Then `n=2` means there are two segments (files) and each of them has one video and audio stream (`v=1:a=1`). Now we need to tell ffmpeg to use the filter complex output stream instead of input by using `-map`.
 
 ### Save a stream video
 
