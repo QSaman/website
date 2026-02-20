@@ -1,6 +1,21 @@
 # website
 My Personal Website
 
+## Bootstrapping
+
+First run Grav without empty config so it initialize everything. Then you can run the following commands:
+
+```
+cd user
+rm config/site.yaml config/system.yaml
+rm -rf pages/*
+git init
+git remote add origin git@github.com:QSaman/website.git
+git pull origin master
+git branch --set-upstream-to=origin/master master
+git submodule update --init
+```
+
 ## Run without Web Server
 
 ```
