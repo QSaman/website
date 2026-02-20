@@ -16,6 +16,12 @@ git branch --set-upstream-to=origin/master master
 git submodule update --init
 ```
 
+If you are using [linuxserver grav](https://hub.docker.com/r/linuxserver/grav), the grav command is here:
+
+```
+stat /app/www/public/bin/grav
+```
+
 ## Run without Web Server
 
 ```
@@ -41,19 +47,26 @@ bin/grav install
 ```
 ## Install these plugins
 
+If any of these plugins asks:
+
+> Do you wish to install this demo content?
+
+The answer is no
+
 ```
-$ bin/gpm install mathjax
-$ bin/gpm install langswitcher
-$ bin/gpm install language-selector
-$ bin/gpm install themer 
-$ bin/gpm install anchors
-$ bin/gpm install highlight
-$ bin/gpm install devtools
-$ bin/gpm install markdown-notices
+bin/gpm install mathjax &&
+bin/gpm install langswitcher &&
+bin/gpm install language-selector &&
+bin/gpm install themer  &&
+bin/gpm install anchors &&
+bin/gpm install highlight &&
+bin/gpm install devtools &&
+bin/gpm install markdown-notices
 ```
 
 ## Install these themes
 
 ```
 $ bin/gpm install learn2
+$ bin/gpm install quark
 ```
