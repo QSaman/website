@@ -7,6 +7,3 @@
 #[submodule "themes/quark"]
 ##	path = themes/quark
 ##	url = https://github.com/getgrav/grav-theme-quark.git
-[submodule "themes/learn2"]
-	path = themes/learn2
-	url = https://github.com/getgrav/grav-theme-learn2.git
